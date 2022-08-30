@@ -40,8 +40,8 @@ class _ShowjokeState extends State<Showjoke> {
 
   void loadinterad() {
     InterstitialAd.load(
-        // adUnitId: 'ca-app-pub-3940256099942544/1033173712',
-        adUnitId: 'ca-app-pub-8153966545731488/3905529760',
+        adUnitId: 'ca-app-pub-3940256099942544/1033173712',
+        // adUnitId: 'ca-app-pub-8153966545731488/3905529760',
         request: AdRequest(),
         adLoadCallback: InterstitialAdLoadCallback(
           onAdLoaded: (InterstitialAd ad) {
@@ -56,8 +56,8 @@ class _ShowjokeState extends State<Showjoke> {
 
   void loadVideoRewardedAD() {
     RewardedAd.load(
-        // adUnitId: 'ca-app-pub-3940256099942544/5224354917',
-        adUnitId: 'ca-app-pub-8153966545731488/1264545246',
+        adUnitId: 'ca-app-pub-3940256099942544/5224354917',
+        // adUnitId: 'ca-app-pub-8153966545731488/1264545246',
         request: AdRequest(),
         rewardedAdLoadCallback: RewardedAdLoadCallback(
           onAdLoaded: (RewardedAd ad) {
@@ -78,7 +78,7 @@ class _ShowjokeState extends State<Showjoke> {
     return Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
-          title: Text(data['cat_name']),
+          title: Text(data['name']),
         ),
         body: Column(
           children: <Widget>[
@@ -153,7 +153,7 @@ class _ShowjokeState extends State<Showjoke> {
                         onTap: () {
                           Clipboard.setData(new ClipboardData(
                               text: jokes[current_joke] +
-                                  " https://play.google.com/store/apps/details?id=com.ivalitsoft.nonvegjokes"));
+                                  " https://play.google.com/store/apps/details?id=com.iconicsoft.republicandemocratjokes"));
                           _displaySnackBar(context);
                         },
                         child: Icon(
@@ -223,7 +223,7 @@ class _ShowjokeState extends State<Showjoke> {
       Share.text(
           '',
           jokes[current_joke] +
-              " https://play.google.com/store/apps/details?id=com.ivalitsoft.nonvegjokes",
+              " https://play.google.com/store/apps/details?id=com.iconicsoft.republicandemocratjokes",
           'text/plain');
     } catch (e) {
       print('error: $e');
@@ -244,11 +244,11 @@ class _ShowjokeState extends State<Showjoke> {
     String dbPath = await getDbPath();
     var db = await openDatabase(dbPath);
     List list = await db
-        .rawQuery('SELECT SMS FROM CategorySMS where Cat_ID=${data["id"]}');
+        .rawQuery('SELECT joke FROM jokes where cat_id=${data["id"]}');
 
     List jokeList = [];
     list.forEach((element) {
-      jokeList.add(element['SMS']);
+      jokeList.add(element['joke']);
     });
 
     return jokeList;

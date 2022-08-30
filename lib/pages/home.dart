@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
   _HomeState() {
     importDB();
     catList = [
-      {"Cat_Id": 1, "Categories": "Category"}
+      {"id": 1, "name": "Category"}
     ];
   }
 
@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Non Veg Jokes"),
+        title: Text("Republican vs Democrat Jokes"),
       ),
       // drawer: Mydrawer(),
       body: new ListView.builder(
@@ -45,15 +45,15 @@ class _HomeState extends State<Home> {
             child: ListTile(
               onTap: () {
                 Navigator.pushNamed(context, '/showjoke', arguments: {
-                  'id': catList[index]['Cat_Id'],
-                  'cat_name': catList[index]['Categories']
+                  'id': catList[index]['id'],
+                  'cat_name': catList[index]['name']
                 });
               },
               leading: Icon(
                 FontAwesomeIcons.laughWink,
                 color: Colors.blue,
               ),
-              title: Text(catList[index]['Categories']),
+              title: Text(catList[index]['name']),
             ),
           );
         },
@@ -95,7 +95,7 @@ class _HomeState extends State<Home> {
   Future<List> getCatList() async {
     String dbPath = await getDbPath();
     var db = await openDatabase(dbPath);
-    List list = await db.rawQuery('SELECT * FROM Categories');
+    List list = await db.rawQuery('SELECT * FROM categories');
     return list;
   }
 }
