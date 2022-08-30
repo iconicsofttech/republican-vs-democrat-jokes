@@ -40,7 +40,7 @@ class _ShowjokeState extends State<Showjoke> {
 
   void loadinterad() {
     InterstitialAd.load(
-        adUnitId: 'ca-app-pub-3940256099942544/1033173712',
+        adUnitId: 'ca-app-pub-3940256099942544/1033173712', // test id
         // adUnitId: 'ca-app-pub-8153966545731488/3905529760',
         request: AdRequest(),
         adLoadCallback: InterstitialAdLoadCallback(
@@ -56,7 +56,7 @@ class _ShowjokeState extends State<Showjoke> {
 
   void loadVideoRewardedAD() {
     RewardedAd.load(
-        adUnitId: 'ca-app-pub-3940256099942544/5224354917',
+        adUnitId: 'ca-app-pub-3940256099942544/5224354917', // test id
         // adUnitId: 'ca-app-pub-8153966545731488/1264545246',
         request: AdRequest(),
         rewardedAdLoadCallback: RewardedAdLoadCallback(
@@ -78,7 +78,7 @@ class _ShowjokeState extends State<Showjoke> {
     return Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
-          title: Text(data['name']),
+          title: Text(data['cat_name']),
         ),
         body: Column(
           children: <Widget>[
