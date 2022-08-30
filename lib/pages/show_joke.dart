@@ -29,8 +29,8 @@ class _ShowjokeState extends State<Showjoke> {
   @override
   void initState() {
     super.initState();
-    loadinterad();
-    loadVideoRewardedAD();
+    // loadinterad();
+    // loadVideoRewardedAD();
   }
 
   @override
@@ -264,7 +264,7 @@ class _ShowjokeState extends State<Showjoke> {
     if (globals.adClickCount > 5) {
       //show inter ad
       if( _interstitialAd != null) {
-        _interstitialAd.show();
+        // _interstitialAd.show();
         globals.adClickCount = 0;
       }
       loadinterad();
@@ -275,7 +275,7 @@ class _ShowjokeState extends State<Showjoke> {
     if (globals.videosAdClickCount > 20) {
       //show video ad
       if( _rewardedAd != null) {
-        _rewardedAd.show();
+        // _rewardedAd.show();
         globals.videosAdClickCount = 0;
       }
       loadVideoRewardedAD();
