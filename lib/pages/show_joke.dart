@@ -7,7 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/services.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:nonvegjokes/utils/globals.dart' as globals;
+import 'package:politicaljokes/utils/globals.dart' as globals;
 
 class Showjoke extends StatefulWidget {
   @override

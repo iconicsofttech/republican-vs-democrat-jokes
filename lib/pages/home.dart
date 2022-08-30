@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:nonvegjokes/utils/httprequests.dart';
+import 'package:politicaljokes/utils/httprequests.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
