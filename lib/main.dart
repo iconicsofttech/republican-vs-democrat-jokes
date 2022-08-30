@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:nonvegjokes/pages/home.dart';
-import 'git package:nonvegjokes/pages/show_joke.dart';
+import 'package:nonvegjokes/pages/show_joke.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
