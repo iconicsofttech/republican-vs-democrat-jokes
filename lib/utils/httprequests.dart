@@ -9,44 +9,43 @@ class httprequests{
 
   void fetchData() async{
 
-    var catId = "3";
-    var jokeId = "585";
+    var catId = "1";
+    var jokeId = "1";
 
     String dbPath = await getDbPath();
     var db = await openDatabase(dbPath);
 
     List list = await db
-        .rawQuery('select _id from CategorySMS ORDER by _id desc LIMIT 1;');
-    jokeId = list[0]["_id"].toString();
+        .rawQuery('select id from jokes ORDER by id desc LIMIT 1;');
+    jokeId = list[0]["id"].toString();
 
     List list2 = await db
-        .rawQuery('select _id from Categories ORDER by _id desc LIMIT 1;');
+        .rawQuery('select id from categories ORDER by id desc LIMIT 1;');
 
-    catId = list2[0]["_id"].toString();
+    catId = list2[0]["id"].toString();
 
-    var url = 'https://iconicsoft.net/nonvegdata?cat_id='+catId+'&joke_id='+jokeId+'&base=YXBpS2VZRnJvbUZsdXR0ZXJAMTIz';
+    var url = 'https://iconicsoft.net/politicaljokesdata?cat_id='+catId+'&joke_id='+jokeId+'&base=YXBpS2VZRnJvbUZsdXR0ZXJAMTIz';
     var resp =  await http.get(Uri.parse(url));
     var data = jsonDecode(resp.body);
 
     if (data["sms"].length > 0) {
 
       Map<String, dynamic> smsData = {};
-      for (var v in data["sms"]) {
-        smsData["_id"] = v["_id"];
-        smsData["Cat_Id"] = v["Cat_Id"];
-        smsData["SMS"] = v["SMS"];
-        db.insert("CategorySMS", smsData);
+      for (var v in data["jokes"]) {
+        smsData["id"] = v["id"];
+        smsData["cat_id"] = v["cat_id"];
+        smsData["joke"] = v["joke"];
+        db.insert("jokes", smsData);
       }
     }
 
     if (data["categories"].length > 0) {
 
       Map<String, dynamic> catData = {};
-      for (var j in data["sms"]) {
-        catData["_id"] = j["_id"];
-        catData["Cat_Id"] = j["Cat_Id"];
-        catData["Categories"] = j["Categories"];
-        db.insert("Categories", catData);
+      for (var j in data["categories"]) {
+        catData["id"] = j["id"];
+        catData["name"] = j["name"];
+        db.insert("categories", catData);
       }
 
     }
