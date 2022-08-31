@@ -28,7 +28,7 @@ class httprequests{
     var resp =  await http.get(Uri.parse(url));
     var data = jsonDecode(resp.body);
 
-    if (data["sms"].length > 0) {
+    if (data["jokes"].length > 0) {
 
       Map<String, dynamic> smsData = {};
       for (var v in data["jokes"]) {

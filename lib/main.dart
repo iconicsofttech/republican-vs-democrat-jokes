@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         '/home' : (context) => Home(),
         '/showjoke' : (context) => Showjoke(),
       },
-      title: 'Non Veg Jokes | Ivalitsoft',
+      title: 'Political Jokes | Iconicsoft',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
